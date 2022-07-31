@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://szenes/Bush.tscn" type="PackedScene" id=2]
+[ext_resource path="res://szenes/Player.tscn" type="PackedScene" id=3]
+
+[node name="world" type="YSort"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 0.000191405, -1.32587 )
+rotation = 0.000144362
+scale = Vector2( 1, 0.997815 )
+polygon = PoolVector2Array( 0, 0, 48, 0, 16, 32, 40, 112, 64, 152, 120, 144, 120, 112, 144, 112, 168, 112, 176, 136, 208, 112, 232, 120, 232, 136, 248, 120, 248, 72, 264, 0, 320, 0, 320, 24, 320, 128, 320, 192, 216, 192, 24, 192, 0, 192, 0, 120, 0, 64 )
+
+[node name="Bush2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 200, 40 )
+
+[node name="Bush3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 152, 40 )
+
+[node name="Bush4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 64, 48 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 144, 96 )
