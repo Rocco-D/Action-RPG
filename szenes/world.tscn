@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://World/GrassBackground.png" type="Texture" id=1]
 [ext_resource path="res://szenes/Bush.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://World/CliffTileset.png" type="Texture" id=5]
 [ext_resource path="res://szenes/Grass.tscn" type="PackedScene" id=6]
 [ext_resource path="res://szenes/Enemies/Bat.tscn" type="PackedScene" id=7]
+[ext_resource path="res://szenes/Touch input.tscn" type="PackedScene" id=8]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -502,6 +503,8 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [node name="world" type="Node2D"]
 
+[node name="Touch input" parent="." instance=ExtResource( 8 )]
+
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 264, 128 )
 texture = ExtResource( 1 )
@@ -542,6 +545,8 @@ drag_margin_left = 0.3
 drag_margin_top = 0.3
 drag_margin_right = 0.3
 drag_margin_bottom = 0.3
+editor_draw_limits = true
+editor_draw_drag_margin = true
 
 [node name="Bushes" type="YSort" parent="YSort"]
 
@@ -555,10 +560,10 @@ position = Vector2( 192, 64 )
 position = Vector2( 104, 48 )
 
 [node name="Bush5" parent="YSort/Bushes" instance=ExtResource( 2 )]
-position = Vector2( 72, 48 )
+position = Vector2( 88, 48 )
 
 [node name="Bush6" parent="YSort/Bushes" instance=ExtResource( 2 )]
-position = Vector2( 40, 48 )
+position = Vector2( 24, 48 )
 
 [node name="Bush7" parent="YSort/Bushes" instance=ExtResource( 2 )]
 position = Vector2( 8, 48 )
@@ -763,14 +768,16 @@ position = Vector2( 168, 112 )
 [node name="Grass6" parent="YSort/grass" instance=ExtResource( 6 )]
 position = Vector2( 240, 64 )
 
-[node name="Bat" parent="YSort" instance=ExtResource( 7 )]
+[node name="YSort" type="YSort" parent="YSort"]
+
+[node name="Bat" parent="YSort/YSort" instance=ExtResource( 7 )]
 position = Vector2( 56, 8 )
 
-[node name="Bat2" parent="YSort" instance=ExtResource( 7 )]
+[node name="Bat2" parent="YSort/YSort" instance=ExtResource( 7 )]
 position = Vector2( 208, 48 )
 
-[node name="Bat3" parent="YSort" instance=ExtResource( 7 )]
+[node name="Bat3" parent="YSort/YSort" instance=ExtResource( 7 )]
 position = Vector2( 56, 232 )
 
-[node name="Bat4" parent="YSort" instance=ExtResource( 7 )]
+[node name="Bat4" parent="YSort/YSort" instance=ExtResource( 7 )]
 position = Vector2( 368, 224 )
