@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=62 format=2]
 
 [ext_resource path="res://World/GrassBackground.png" type="Texture" id=1]
 [ext_resource path="res://szenes/Bush.tscn" type="PackedScene" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://szenes/Grass.tscn" type="PackedScene" id=6]
 [ext_resource path="res://szenes/Enemies/Bat.tscn" type="PackedScene" id=7]
 [ext_resource path="res://szenes/Touch input.tscn" type="PackedScene" id=8]
+[ext_resource path="res://szenes/UI/Health UI.tscn" type="PackedScene" id=9]
+[ext_resource path="res://szenes/objekts/Tree.tscn" type="PackedScene" id=10]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -503,8 +505,6 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [node name="world" type="Node2D"]
 
-[node name="Touch input" parent="." instance=ExtResource( 8 )]
-
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 264, 128 )
 texture = ExtResource( 1 )
@@ -771,7 +771,7 @@ position = Vector2( 240, 64 )
 [node name="YSort" type="YSort" parent="YSort"]
 
 [node name="Bat" parent="YSort/YSort" instance=ExtResource( 7 )]
-position = Vector2( 56, 8 )
+position = Vector2( 64, 8 )
 
 [node name="Bat2" parent="YSort/YSort" instance=ExtResource( 7 )]
 position = Vector2( 344, 56 )
@@ -781,3 +781,42 @@ position = Vector2( 56, 232 )
 
 [node name="Bat4" parent="YSort/YSort" instance=ExtResource( 7 )]
 position = Vector2( 368, 224 )
+
+[node name="Trees" type="YSort" parent="YSort"]
+position = Vector2( 88, 32 )
+
+[node name="Tree" parent="YSort/Trees" instance=ExtResource( 10 )]
+
+[node name="Tree2" parent="YSort/Trees" instance=ExtResource( 10 )]
+position = Vector2( 8, 208 )
+
+[node name="Tree3" parent="YSort/Trees" instance=ExtResource( 10 )]
+position = Vector2( -32, 208 )
+
+[node name="Tree4" parent="YSort/Trees" instance=ExtResource( 10 )]
+position = Vector2( -72, 208 )
+
+[node name="Tree5" parent="YSort/Trees" instance=ExtResource( 10 )]
+position = Vector2( -112, 208 )
+
+[node name="Tree6" parent="YSort/Trees" instance=ExtResource( 10 )]
+position = Vector2( -152, 208 )
+
+[node name="Tree7" parent="YSort/Trees" instance=ExtResource( 10 )]
+position = Vector2( -152, 80 )
+
+[node name="Tree8" parent="YSort/Trees" instance=ExtResource( 10 )]
+position = Vector2( -112, 24 )
+
+[node name="Tree9" parent="YSort/Trees" instance=ExtResource( 10 )]
+position = Vector2( 288, 39 )
+
+[node name="UI Elements" type="CanvasLayer" parent="."]
+
+[node name="Touch input" parent="UI Elements" instance=ExtResource( 8 )]
+
+[node name="Health UI" parent="UI Elements" instance=ExtResource( 9 )]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 44.0
+margin_bottom = 28.0
